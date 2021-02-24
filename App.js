@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Header from './components/Header';
+import StartGameScreen from './screens/StartGameScreen';
 
 export default function App() {
   return (
@@ -8,6 +9,7 @@ export default function App() {
       <Header
         title="Game App"
       />
+      <StartGameScreen />
     </View>
   );
 }
