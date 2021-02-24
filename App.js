@@ -19,3 +19,7 @@ const styles = StyleSheet.create({
     flex: 1
   }
 });
+
+// notes: styling: 
+// https://reactnative.dev/docs/components-and-apis
+// https://reactnative.dev/docs/view-style-props
