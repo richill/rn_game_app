@@ -23,3 +23,4 @@ const styles = StyleSheet.create({
 // notes: styling: 
 // https://reactnative.dev/docs/components-and-apis
 // https://reactnative.dev/docs/view-style-props
+// https://github.com/vitalets/react-native-extended-stylesheet/issues/97
