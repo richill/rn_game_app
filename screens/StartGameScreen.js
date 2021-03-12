@@ -10,12 +10,12 @@ const StartGameScreen = (props) => {
   const [confirmed, setConfirmed] = useState(false);
   const [selectedNumber, setSelectedNumber] = useState();
 
-  const numberInputHandler = (inputText) => {
-    setEnteredValue(inputText.replace(/[^0-9]/g), '');
-  };
-
   const dimissKeyboardHandler = () => {
     Keyboard.dismiss();
+  };
+
+  const numberInputHandler = (inputText) => {
+    setEnteredValue(inputText.replace(/[^0-9]/g), '');
   };
 
   const resetInputHandler = () => {
@@ -27,10 +27,10 @@ const StartGameScreen = (props) => {
     const chosenNumber = parseInt(enteredValue);
     if (chosenNumber === NaN || chosenNumber <= 0 || chosenNumber > 99) {
       return;
-    }
-    setConfirmed(true);
+    };
     setSelectedNumber(chosenNumber);
-    setEnteredValue('');
+    setConfirmed(true);
+    // setEnteredValue('');
   };
 
   let confirmedOutput;
