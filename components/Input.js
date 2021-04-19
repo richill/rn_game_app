@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
 
 // notes:
 // { ...props }: fowarding your props to the component you are using
-// takes all you props & adds them to your component
+// takes all your props & adds them to your component
 
 // {{ ...props.style}}: allows you to have additional styling for 
 // TextInput outside of the component
