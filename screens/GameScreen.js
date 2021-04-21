@@ -25,7 +25,7 @@ const GameScreen = (props) => {
   const nextGuesssHandler = (direction) => {
     if ((direction === 'lower' && currentGuess < props.userChoice) || (direction === 'greater' && currentGuess > props.userChoice)) {
       Alert.alert(
-        'Do not lie',
+        'Don\'t lie!',
         'in giving the Opponent the wrong direction',
         [{ text: 'Sorry!', style:'cancel' }]
       );
@@ -69,3 +69,6 @@ const styles = StyleSheet.create({
 });
 
 export default GameScreen;
+
+// useRef = consistently stores data & is updated based on new data not when the game/browser is refresed
+
