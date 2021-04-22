@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { StyleSheet, Text, View, Button, Alert } from 'react-native';
 import NumberContainer from '../components/NumberContainer';
 import Card  from '../components/Card';
@@ -19,8 +19,32 @@ const GameScreen = (props) => {
     generateRandombetween(1, 100, props.userChoice)
   );
 
+  const [rounds, setRounds] = useState(0);
+
   const currentLow = useRef(1);
   const currentHigh = useRef(100);
+
+  // we use object desctructing to destructure my props
+  // this is an array destructuring for objects which allows us to store these properties in constants
+  const { userChoice, onGameOver } = props;
+
+  // this method is excuted only after the above cycle has been redendered (not before or simultaneously)
+  // first argument is the function that excutes after rendering the coponent
+  // second argument is an array of dependencies of the function
+  // we don't want to use the props. as it changes when the parent changes & therefore not a good check
+  // therefore we deconstruct inorder just to use 'userChoice' & 'onGameover'
+
+  // userEffect(() => {
+  //   if (currentGuess === props.userChoice) {
+  //     props.onGameOver(rounds);
+  //   }
+  // }, [currentGuess, props.userChoice, props.onGameOver]);
+
+  useEffect(() => {
+    if (currentGuess === userChoice) {
+      onGameOver(rounds);
+    }
+  }, [currentGuess, userChoice, onGameOver]);
 
   const nextGuesssHandler = (direction) => {
     if ((direction === 'lower' && currentGuess < props.userChoice) || (direction === 'greater' && currentGuess > props.userChoice)) {
@@ -39,6 +63,7 @@ const GameScreen = (props) => {
     }
     const nextNumber = generateRandombetween(currentLow.current, currentHigh.current, currentGuess);
     setCurrentGuesss(nextNumber);
+    setRounds(currentRounds => currentRounds + 1);
   };
 
   return(
