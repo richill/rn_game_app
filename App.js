@@ -9,9 +9,13 @@ export default function App() {
   const [userNumber, setUserNumber] = useState();
   const [guessRounds, setGuessRounds] = useState(0);
 
+  const configureNewGameHandler = () => {
+    setGuessRounds(0);
+    setUserNumber(null);
+  };
+
   const startGameHandler = (selectedNumber) => {
     setUserNumber(selectedNumber);
-    setGuessRounds(0);
   };
 
   const gameOverHandler = (numberOfRounds) => {
@@ -23,7 +27,7 @@ export default function App() {
   if (userNumber && guessRounds <= 0) {
     content = <GameScreen userChoice={userNumber} onGameOver={gameOverHandler} />;
   } else if (guessRounds > 0) {
-    content = <GameOverScreen />
+    content = <GameOverScreen roundsNumber={guessRounds} computerGuessNumber={userNumber} onRestart={configureNewGameHandler}/>
   }
 
   return (
@@ -44,3 +48,8 @@ const styles = StyleSheet.create({
 // https://reactnative.dev/docs/components-and-apis
 // https://reactnative.dev/docs/view-style-props
 // https://github.com/vitalets/react-native-extended-stylesheet/issues/97
+
+// import { AppLoading } from 'expo';
+
+// expo install expo-app-loading
+// import AppLoading from 'expo-app-loading';
