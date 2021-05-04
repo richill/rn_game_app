@@ -1,39 +1,15 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
-// import { AppLoading } from 'expo-app-loading';
-// import * as Font from 'expo-font';
-
-import AppLoading from 'expo-app-loading';
+import { AppLoading } from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 import Header from './components/Header';
 import StartGameScreen from './screens/StartGameScreen';
 import GameScreen from './screens/GameScreen';
 import GameOverScreen from './screens/GameOverScreen';
 
-// const [fetchFonts] = () => {
-//   Font.loadAsync({
-//     'open-sans': require('./assets/Fonts/OpenSans-Regular.ttf'),
-//     'open-sans-bold': require('./assets/Fonts/OpenSans-Bold.ttf'),
-//   });
-// };
-// added outside of the functional components
-// because this function does not need to be recreated for every component re-render cycle
-
 export default function App() {
   const [userNumber, setUserNumber] = useState();
   const [guessRounds, setGuessRounds] = useState(0);
-  // const [dataLoaded, setDataLoaded] = useState(false);
-
-  // if (!dataLoaded) {
-  //   return (
-  //     <AppLoading 
-  //       startAsync={fetchFonts}
-  //       onFinish={() => setDataLoaded(true)}
-  //     />
-  //   );
-  // }
-  // This function will be excuted when the fetchFonts is done
 
   const configureNewGameHandler = () => {
     setGuessRounds(0);
@@ -57,13 +33,15 @@ export default function App() {
   }
 
   let [fontsLoaded] = useFonts({
-    "open-sans": require('./assets/Fonts/OpenSans-Regular.ttf'),
-    "open-sans-bold": require('./assets/Fonts/OpenSans-Bold.ttf'),
+    'open-sans': require('./assets/Fonts/OpenSans-Regular.ttf'),
+    'open-sans-bold': require('./assets/Fonts/OpenSans-Bold.ttf'),
   });
 
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return (
+      <AppLoading onError={(err) => console.log(err)}/>
+    );
   } else {
     return (
       <View style={styles.screen}>
