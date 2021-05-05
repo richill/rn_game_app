@@ -12,7 +12,9 @@ import {
 import Card from '../components/Card';
 import Colours from '../constants/colours';
 import Input from '../components/Input';
-import NumberContainer from '../components/NumberContainer'
+import NumberContainer from '../components/NumberContainer';
+import BodyText from '../components/BodyText';
+import TitleText from '../components/TitleText';
 
 const StartGameScreen = (props) => {
   const [enteredValue, setEnteredValue] = useState('');
@@ -66,7 +68,12 @@ const StartGameScreen = (props) => {
   return(
     <TouchableWithoutFeedback onPress={dimissKeyboardHandler}>
       <View style={styles.screen}>
-        <Text style={styles.title}>Start a new Game!</Text>
+        <Text style={styles.txtDance}>Start a new Game - Dance!</Text>
+        <Text style={styles.txtOpenSans}>Start a new Game - txtOpenSans!</Text>
+        <Text style={styles.txtOpenBold}>Start a new Game - txtOpenBold!</Text>
+        <Text style={styles.txtOpenNormal}>Start a new Game - txtOpenNormal!</Text>
+        <TitleText>Start a new Game - TitleText!</TitleText>
+        <BodyText>Start a new Game - BodyText!</BodyText>
         <Card style={styles.InputConatiner}>
           <Text>Select a number</Text>
           <Input
@@ -102,7 +109,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     marginVertical: 10,
-    fontFamily: 'open-sans-bold'
+    // fontFamily: 'Dancing-Script'
+    // fontWeight: 'bold'
   },
   InputConatiner: {
     width: 300,
@@ -125,6 +133,25 @@ const styles = StyleSheet.create({
   summaryContainer: {
     marginTop: 20,
     alignItems: 'center'
+  },
+  txtDance: {
+    fontSize: 20,
+    marginVertical: 10,
+    fontFamily: 'Dancing-Script'
+  },
+  txtOpenSans: {
+    fontSize: 20,
+    marginVertical: 10,
+    fontFamily: 'Open-Sans'
+  },
+  txtOpenBold: {
+    fontSize: 20,
+    marginVertical: 10,
+    fontFamily: 'Open-Sans-Bold'
+  },
+  txtOpenNormal: {
+    fontSize: 20,
+    marginVertical: 10,
   }
 });
 
