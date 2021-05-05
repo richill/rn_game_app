@@ -7,7 +7,6 @@ import StartGameScreen from './screens/StartGameScreen';
 import GameScreen from './screens/GameScreen';
 import GameOverScreen from './screens/GameOverScreen';
 
-
 const fetchFonts = () => {
   return Font.loadAsync({
     'Dancing-Script': require('./assets/fonts/DancingScript-VariableFont_wght.ttf'),
