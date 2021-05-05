@@ -108,9 +108,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    marginVertical: 10,
-    // fontFamily: 'Dancing-Script'
-    // fontWeight: 'bold'
+    marginVertical: 10
   },
   InputConatiner: {
     width: 300,
