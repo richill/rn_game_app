@@ -80,18 +80,27 @@ const styles = StyleSheet.create({
 // rm package-lock.json
 // npm install
 
+// -----------------
+
 // AppLoading: it will prolong the default loading screen to stay active
 // until untill all content of a certain task of my choice has been done or rendered
 // related to dataloaded & setDataLoaded
 // must install by running -  expo install expo-app-loading or npm install --save expo-app-loading
 
-// notes: styling: 
-// https://reactnative.dev/docs/components-and-apis
-// https://reactnative.dev/docs/view-style-props
-// https://github.com/vitalets/react-native-extended-stylesheet/issues/97
-
 // import { AppLoading } from 'expo';
 
 // expo install expo-app-loading
 // import AppLoading from 'expo-app-loading';
+
+
+// -----------------
+
+// CSS styling
+// adding additinal css to a css component
+// look at the example of <BodyText> in GameOverScreen.js for resultText and BodyText.js 
+
+// notes: styling: 
+// https://reactnative.dev/docs/components-and-apis
+// https://reactnative.dev/docs/view-style-props
+// https://github.com/vitalets/react-native-extended-stylesheet/issues/97
 
