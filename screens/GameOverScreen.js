@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Button, Alert, Image } from 'react-native';
 import BodyText from '../components/BodyText';
 import TitleText from '../components/TitleText';
 import Colours from '../constants/colours';
+import MainButton from '../components/MainButton';
 
 const GameOverScreen = (props) => {
   return(
@@ -20,7 +21,9 @@ const GameOverScreen = (props) => {
         <BodyText style={styles.resultText}>Number of rounds computer guessed: <Text style={styles.highlight}>{props.roundsNumber}</Text></BodyText>
         <BodyText style={styles.resultText}>The number guess by the computer was: <Text style={styles.highlight}>{props.computerGuessNumber}</Text></BodyText>
       </View>
-      <Button title="New Game" onPress={props.onRestart}/>
+      <MainButton onPress={props.onRestart}>
+       New Game
+     </MainButton>
     </View>
   );
 }
