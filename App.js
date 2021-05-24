@@ -98,3 +98,11 @@ const styles = StyleSheet.create({
 // https://reactnative.dev/docs/view-style-props
 // https://github.com/vitalets/react-native-extended-stylesheet/issues/97
 
+
+// -----------------
+
+
+// Icons
+// import { Ionicons } from '@expo/vector-icons';
+// https://icons.expo.fyi/
+
