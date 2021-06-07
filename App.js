@@ -106,3 +106,11 @@ const styles = StyleSheet.create({
 // import { Ionicons } from '@expo/vector-icons';
 // https://icons.expo.fyi/
 
+
+// -----------------
+
+
+// custom built themes
+// https://docs.expo.io/guides/userinterface/
+
+
