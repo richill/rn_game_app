@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { StyleSheet, Text, View, Alert } from 'react-native';
+import { StyleSheet, Text, View, Alert, ScrollView } from 'react-native';
 import NumberContainer from '../components/NumberContainer';
 import Card  from '../components/Card';
 import DefaultStyles from '../constants/default-styles';
@@ -18,12 +18,9 @@ const GameScreen = (props) => {
     }
   }
 
-  const [currentGuess, setCurrentGuesss] = useState(
-    generateRandombetween(1, 100, props.userChoice)
-  );
-
-  const [rounds, setRounds] = useState(0);
-
+  const initialGuess = generateRandombetween(1, 100, props.userChoice);
+  const [currentGuess, setCurrentGuesss] = useState(initialGuess);
+  const [pastGuesses, setPastGuesses] = useState([initialGuess]);
   const currentLow = useRef(1);
   const currentHigh = useRef(100);
 
@@ -45,7 +42,7 @@ const GameScreen = (props) => {
 
   useEffect(() => {
     if (currentGuess === userChoice) {
-      onGameOver(rounds);
+      onGameOver(pastGuesses.length);
     }
   }, [currentGuess, userChoice, onGameOver]);
 
@@ -62,11 +59,12 @@ const GameScreen = (props) => {
     if (direction === 'lower') {
       currentHigh.current = currentGuess;
     } else {
-      currentLow.current = currentGuess;
+      currentLow.current = currentGuess + 1;
     }
     const nextNumber = generateRandombetween(currentLow.current, currentHigh.current, currentGuess);
     setCurrentGuesss(nextNumber);
-    setRounds(currentRounds => currentRounds + 1);
+    // setRounds(currentRounds => currentRounds + 1);
+    setPastGuesses(currentPastGuesses => [nextNumber, ...currentPastGuesses]);
   };
 
   return(
@@ -81,6 +79,13 @@ const GameScreen = (props) => {
           <Ionicons name="md-add" size={24} color="white"/>
         </MainButton>
       </Card>
+      <ScrollView>
+        {pastGuesses.map(guess => (
+          <View key={guess}>
+            <Text>{guess}</Text>
+          </View>
+        ))}
+      </ScrollView>
     </View>
   );
 };
