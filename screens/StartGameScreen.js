@@ -3,7 +3,6 @@ import {
   StyleSheet,
   Text,
   View,
-  TextInput,
   Button,
   TouchableWithoutFeedback,
   Keyboard,
