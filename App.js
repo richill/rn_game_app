@@ -99,6 +99,20 @@ const styles = StyleSheet.create({
 // https://github.com/vitalets/react-native-extended-stylesheet/issues/97
 
 
+// CSS Dimensions - Lesson 92
+// how to use style Dimensions in a component/element
+// <Card style={Dimensions.get('window').height > 600 ? styles.buttonLarge : styles.buttonSmall}>
+
+// marginTop: Dimensions.get('window').height > 600 ? 20 : 5,
+// note: if the dimension of the screen is greater than 600 set margin to 20 else set to 10
+
+// using dimension in code
+// if (Dimensions.get('window').height > 600) {
+//   return (<View>....</View>)
+// }
+
+// return (<View></View>)
+
 // -----------------
 
 
