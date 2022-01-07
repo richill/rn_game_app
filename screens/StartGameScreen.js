@@ -24,10 +24,12 @@ const StartGameScreen = (props) => {
 
   const dimissKeyboardHandler = () => {
     Keyboard.dismiss();
+    // dimisses the keyboard when you touch (TouchableWithoutFeedback) elsewhere on the screen
   };
 
   const numberInputHandler = (inputText) => {
     setEnteredValue(inputText.replace(/[^0-9]/g), '');
+    // replace is validating with a regex that the input is only a number
   };
 
   const resetInputHandler = () => {
@@ -62,9 +64,9 @@ const StartGameScreen = (props) => {
     <Card style={styles.summaryContainer}>
       <Text>You selected</Text>
       <NumberContainer>{selectedNumber}</NumberContainer>
-     <MainButton onPress={selectNumberHandler}>
+      <MainButton onPress={selectNumberHandler}>
        START GAME
-     </MainButton>
+      </MainButton>
     </Card>
   };
 
