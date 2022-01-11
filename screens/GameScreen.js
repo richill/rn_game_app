@@ -45,6 +45,7 @@ const GameScreen = (props) => {
 
   // we use object desctructing to destructure my props
   // this is an array destructuring for objects which allows us to store these properties in constants
+  // pulling properties names out of props objeacts and storing them in constants. So on L:64 rather than props.userChoie we can just write userChoice
   const { userChoice, onGameOver } = props;
 
   // this method is excuted only after the above cycle has been redendered (not before or simultaneously)
@@ -74,7 +75,6 @@ const GameScreen = (props) => {
       );
       return;
     };
-
     if (direction === 'lower') {
       currentHigh.current = currentGuess;
     } else {
