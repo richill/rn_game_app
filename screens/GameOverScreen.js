@@ -18,8 +18,14 @@ const GameOverScreen = (props) => {
         />
       </View>
       <View style={styles.resultContainer}>
-        <BodyText style={styles.resultText}>Number of rounds computer guessed: <Text style={styles.highlight}>{props.roundsNumber}</Text></BodyText>
-        <BodyText style={styles.resultText}>The number guess by the computer was: <Text style={styles.highlight}>{props.computerGuessNumber}</Text></BodyText>
+        <BodyText style={styles.resultText}>
+          <Text>Number of rounds computer guessed: </Text>
+          <Text style={styles.highlight}>{props.roundsNumber}</Text>
+        </BodyText>
+        <BodyText style={styles.resultText}>
+          <Text>Number guessed by the computer was: </Text>
+          <Text style={styles.highlight}>{props.computerGuessNumber}</Text>
+        </BodyText>
       </View>
       <MainButton onPress={props.onRestart}>
        New Game
@@ -49,6 +55,7 @@ const styles = StyleSheet.create({
     borderRadius: 200,
   },
   resultContainer: {
+    width: '80%',
     marginHorizontal: 30,
     marginVertical: 15
   },
