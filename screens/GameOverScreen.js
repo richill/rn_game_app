@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     borderRadius: 200,
   },
   resultContainer: {
-    width: '80%',
+    // width: '80%',
     marginHorizontal: 30,
     marginVertical: 15
   },
