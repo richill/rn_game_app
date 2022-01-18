@@ -106,7 +106,7 @@ const GameScreen = (props) => {
           {pastGuesses.map((guess, index) => renderListItem(guess, pastGuesses.length - index))}
         </ScrollView>*/}
 
-        {/*flatList is better if you do not know how many items wouls be in the list*/}
+        {/*flatList is better if you do not know how many items would be in the list*/}
         <FlatList
           keyExtractor={(item) => item}
           data={pastGuesses}
