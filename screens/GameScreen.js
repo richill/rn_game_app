@@ -93,6 +93,8 @@ const GameScreen = (props) => {
       <Text style={DefaultStyles.bodyText}>Opponent's Guess</Text>
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card style={styles.buttonContainer}>
+        {/*notes: <Card style={Dimensions.get('window').height > 600 ? styles.buttonContainer : styles.buttonContainerSmall}>*/}
+        {/*notes: can make components responsive with styling ie. if height is > 600 use styles.buttonContainer otherwise use styles.buttonContainerSmall*/}
         <MainButton onPress={nextGuesssHandler.bind(this, 'lower')}>
           <Ionicons name="md-remove" size={24} color="white"/>
         </MainButton>
@@ -155,5 +157,20 @@ const styles = StyleSheet.create({
 
 export default GameScreen;
 
+
+// NOTES
 // useRef = consistently stores data & is updated based on new data not when the game/browser is refresed
+
+// responsive design
+// sectio 05 - lesson 92
+// can use this structure for responsive design
+// if (Dimensions.get('window').height > 600) {
+//   return(
+//     <View></View>
+//   )
+// };
+
+
+
+
 

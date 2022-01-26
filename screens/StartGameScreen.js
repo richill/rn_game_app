@@ -129,7 +129,8 @@ const styles = StyleSheet.create({
   },
   button: {
     // width: 100
-    width: Dimensions.get('window').width / 4
+    // notes: can use window or screen but window excludes status bar and calculates height and width
+    width: Dimensions.get('window').width / 3
   },
   input: {
     width: 50,
@@ -142,21 +143,25 @@ const styles = StyleSheet.create({
   txtDance: {
     fontSize: 20,
     marginVertical: 10,
-    fontFamily: 'Dancing-Script'
+    fontFamily: 'Dancing-Script',
+    display: 'none'
   },
   txtOpenSans: {
     fontSize: 20,
     marginVertical: 10,
-    fontFamily: 'Open-Sans'
+    fontFamily: 'Open-Sans',
+    display: 'none'
   },
   txtOpenBold: {
     fontSize: 20,
     marginVertical: 10,
-    fontFamily: 'Open-Sans-Bold'
+    fontFamily: 'Open-Sans-Bold',
+    display: 'none'
   },
   txtOpenNormal: {
     fontSize: 20,
     marginVertical: 10,
+    display: 'none'
   }
 });
 
