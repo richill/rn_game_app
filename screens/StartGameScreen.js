@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   StyleSheet,
   Text,
@@ -23,6 +23,9 @@ const StartGameScreen = (props) => {
   const [enteredValue, setEnteredValue] = useState('');
   const [confirmed, setConfirmed] = useState(false);
   const [selectedNumber, setSelectedNumber] = useState();
+  const [buttonWidth, setButtonWidth] = useState(Dimensions.get('window').width / 3);
+
+  
 
   const dimissKeyboardHandler = () => {
     Keyboard.dismiss();
@@ -38,6 +41,20 @@ const StartGameScreen = (props) => {
     setEnteredValue('');
     setConfirmed(false);
   };
+
+
+  useEffect(() => {
+    const updateLayout = () => {
+      setButtonWidth(Dimensions.get('window').width / 3);
+    };
+
+    Dimensions.addEventListener('change', updateLayout);
+    // notes: this will make sure the dimesnsions are refreshed when the app rotates to lanscape or potrait
+    return () => {
+      Dimensions.removeEventListener('change', updateLayout);
+    };
+  });
+  // notes: enables code to be run when ever our component is rendered
 
   const selectNumberHandler = () => {
     props.onStartGame(selectedNumber);
@@ -95,10 +112,10 @@ const StartGameScreen = (props) => {
                 value={enteredValue}
               />
               <View style={styles.buttonContainer}>
-                <View style={styles.button}>
+                <View style={{width: buttonWidth}}>
                   <Button title="Reset" onPress={resetInputHandler} color={Colours.accent}/>
                 </View>
-                <View style={styles.button}>
+                <View style={{width: buttonWidth}}>
                   <Button title="Confirm" onPress={confirmInputHandler} color={Colours.primiary} />
                 </View>
               </View>
@@ -133,11 +150,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 15
   },
-  button: {
+  // button: {
     // width: 100
     // notes: can use window or screen but window excludes status bar and calculates height and width
-    width: Dimensions.get('window').width / 3
-  },
+    // notes: dimensions.get is only calculated when the app starts when the app is rotated the dismension.get is not refreshed it still remains the same
+    // notes: do not use dimesnsion.get for a rotatable app - use const [buttonWidth, setButtonWidth] = useState(Dimensions.get('window').width / 3);
+    // width: Dimensions.get('window').width / 3
+  // },
   input: {
     width: 50,
     textAlign: 'center'
