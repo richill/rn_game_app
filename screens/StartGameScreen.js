@@ -7,7 +7,8 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Alert,
-  Dimensions
+  Dimensions,
+  ScrollView
 } from 'react-native';
 import Card from '../components/Card';
 import Colours from '../constants/colours';
@@ -71,37 +72,39 @@ const StartGameScreen = (props) => {
   };
 
   return(
-    <TouchableWithoutFeedback onPress={dimissKeyboardHandler}>
-      <View style={styles.screen}>
-        <Text style={styles.txtDance}>Start a new Game - Dance!</Text>
-        <Text style={styles.txtOpenSans}>Start a new Game - txtOpenSans!</Text>
-        <Text style={styles.txtOpenBold}>Start a new Game - txtOpenBold!</Text>
-        <Text style={styles.txtOpenNormal}>Start a new Game - txtOpenNormal!</Text>
-        <TitleText>Start a new Game - TitleText!</TitleText>
-        <BodyText>Start a new Game - BodyText!</BodyText>
-        <Card style={styles.InputConatiner}>
-          <Text>Select a number</Text>
-          <Input
-            style={styles.input}
-            blurOnSubmit autoCapitalize='none'
-            autoCorrect={false}
-            keyboardType="number-pad"
-            maxLength={2}
-            onChangeText={numberInputHandler}
-            value={enteredValue}
-          />
-          <View style={styles.buttonContainer}>
-            <View style={styles.button}>
-              <Button title="Reset" onPress={resetInputHandler} color={Colours.accent}/>
+    <ScrollView>
+      <TouchableWithoutFeedback onPress={dimissKeyboardHandler}>
+        <View style={styles.screen}>
+          <Text style={styles.txtDance}>Start a new Game - Dance!</Text>
+          <Text style={styles.txtOpenSans}>Start a new Game - txtOpenSans!</Text>
+          <Text style={styles.txtOpenBold}>Start a new Game - txtOpenBold!</Text>
+          <Text style={styles.txtOpenNormal}>Start a new Game - txtOpenNormal!</Text>
+          <TitleText>Start a new Game - TitleText!</TitleText>
+          <BodyText>Start a new Game - BodyText!</BodyText>
+          <Card style={styles.InputConatiner}>
+            <Text>Select a number</Text>
+            <Input
+              style={styles.input}
+              blurOnSubmit autoCapitalize='none'
+              autoCorrect={false}
+              keyboardType="number-pad"
+              maxLength={2}
+              onChangeText={numberInputHandler}
+              value={enteredValue}
+            />
+            <View style={styles.buttonContainer}>
+              <View style={styles.button}>
+                <Button title="Reset" onPress={resetInputHandler} color={Colours.accent}/>
+              </View>
+              <View style={styles.button}>
+                <Button title="Confirm" onPress={confirmInputHandler} color={Colours.primiary} />
+              </View>
             </View>
-            <View style={styles.button}>
-              <Button title="Confirm" onPress={confirmInputHandler} color={Colours.primiary} />
-            </View>
-          </View>
-        </Card>
-        {confirmedOutput}
-      </View>
-    </TouchableWithoutFeedback>
+          </Card>
+          {confirmedOutput}
+        </View>
+      </TouchableWithoutFeedback>
+    </ScrollView>
   );
 };
 
