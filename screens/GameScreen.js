@@ -43,13 +43,13 @@ const GameScreen = (props) => {
   const currentLow = useRef(1);
   const currentHigh = useRef(100);
 
-  // we use object desctructing to destructure my props
+  // we use object destructing to destructure my props
   // this is an array destructuring for objects which allows us to store these properties in constants
-  // pulling properties names out of props objeacts and storing them in constants. So on L:64 rather than props.userChoie we can just write userChoice
+  // pulling properties names out of props objects and storing them in constants. So on L:64 rather than props.userChoie we can just write userChoice
   const { userChoice, onGameOver } = props;
 
-  // this method is excuted only after the above cycle has been redendered (not before or simultaneously)
-  // first argument is the function that excutes after rendering the coponent
+  // this method is executed only after the above cycle has been rendered (not before or simultaneously)
+  // first argument is the function that executes after rendering the component
   // second argument is an array of dependencies of the function
   // we don't want to use the props. as it changes when the parent changes & therefore not a good check
   // therefore we deconstruct inorder just to use 'userChoice' & 'onGameover'
