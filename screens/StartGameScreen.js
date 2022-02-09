@@ -25,11 +25,9 @@ const StartGameScreen = (props) => {
   const [selectedNumber, setSelectedNumber] = useState();
   const [buttonWidth, setButtonWidth] = useState(Dimensions.get('window').width / 3);
 
-  
-
   const dimissKeyboardHandler = () => {
     Keyboard.dismiss();
-    // dimisses the keyboard when you touch (TouchableWithoutFeedback) elsewhere on the screen
+    // dismisses the keyboard when you touch (TouchableWithoutFeedback) elsewhere on the screen
   };
 
   const numberInputHandler = (inputText) => {
@@ -42,16 +40,17 @@ const StartGameScreen = (props) => {
     setConfirmed(false);
   };
 
-
   useEffect(() => {
     const updateLayout = () => {
       setButtonWidth(Dimensions.get('window').width / 3);
     };
 
-    Dimensions.addEventListener('change', updateLayout);
-    // notes: this will make sure the dimesnsions are refreshed when the app rotates to lanscape or potrait
+    const rotationChanged = Dimensions.addEventListener('change', updateLayout);
+    // notes: this will make sure the dimensions are refreshed when the app rotates to landscape or portrait
     return () => {
-      Dimensions.removeEventListener('change', updateLayout);
+      if (rotationChanged) {
+        rotationChanged.remove();
+      }
     };
   });
   // notes: enables code to be run when ever our component is rendered
