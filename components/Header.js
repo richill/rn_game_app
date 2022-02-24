@@ -5,7 +5,7 @@ import TitleText from './TitleText';
 
 const Header = (props) => {
   return(
-    <View style={{...styles.headerBase, ...Platform.select({ios: styles.headerIOS, android: styles.headerAndriod})}}>
+    <View style={{...styles.headerBase, ...Platform.select({ios: styles.headerIOS, android: styles.headerAndroid})}}>
       {/*<Text style={styles.headerTitle}>{props.title}</Text>*/}
       <TitleText style={styles.title}>{props.title}</TitleText>
     </View>
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#ccc',
     borderBottomWidth: 1,
   },
-  headerAndriod: {
+  headerAndroid: {
     backgroundColor: Colours.primiary,
     borderBottomColor: 'transparent',
     borderBottomWidth: 0,

@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, TouchableNativeFeedback, Platform } from 'react-native';
 import Colours from '../constants/colours';
 
-const MainButton = (props) => {
+const MainButtonOriginal = (props) => {
   let ButtonComponent = TouchableOpacity;
 
   if (Platform.OS === 'android' && Platform.Version >= 21) {
@@ -17,7 +17,6 @@ const MainButton = (props) => {
         </View>
       </ButtonComponent>
     </View>
-
   );
 };
 
@@ -39,7 +38,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default MainButton;
+export default MainButtonOriginal;
 
 // notes:
 // we want to use TouchableOpacity on ios &
