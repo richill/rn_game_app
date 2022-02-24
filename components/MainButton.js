@@ -1,18 +1,31 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TouchableNativeFeedback, Platform } from 'react-native';
 import Colours from '../constants/colours';
 
 const MainButton = (props) => {
+  let ButtonComponent = TouchableOpacity;
+
+  if (Platform.OS === 'android' && Platform.Version >= 21) {
+    ButtonComponent = TouchableNativeFeedback;
+  }
+
   return(
-    <TouchableOpacity activeOpacity={0.8} onPress={props.onPress}>
-      <View style={styles.button}>
-        <Text style={styles.buttonText}>{props.children}</Text>
-      </View>
-    </TouchableOpacity>
+    <View style={styles.buttonContainer}>
+      <ButtonComponent activeOpacity={0.8} onPress={props.onPress}>
+        <View style={styles.button}>
+          <Text style={styles.buttonText}>{props.children}</Text>
+        </View>
+      </ButtonComponent>
+    </View>
+
   );
 };
 
 const styles = StyleSheet.create({
+  buttonContainer: {
+    borderRadius: 25,
+    overflow: 'hidden',
+  },
   button: {
     backgroundColor: Colours.primiary,
     paddingVertical: 12,
@@ -24,6 +37,10 @@ const styles = StyleSheet.create({
     fontFamily: 'Open-Sans',
     fontSize: 18
   }
-}); 
+});
 
 export default MainButton;
+
+// notes:
+// we want to use TouchableOpacity on ios &
+// TouchableNativeFeedback on andriod
